@@ -1,6 +1,6 @@
 import * as yup from "yup"; //import all exports from the yup
 
-export const userSchemaValidation = yup.object().shape({
+export const userSchema = yup.object().shape({
   name: yup.string().required("Name is required"),
   email: yup
     .string()
