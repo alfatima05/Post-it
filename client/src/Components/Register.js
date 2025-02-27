@@ -10,10 +10,13 @@ import {
   Form,
 } from "reactstrap";
 import logo from "../Images/logo-t.png";
+<<<<<<< HEAD
 import { userSchema } from "../Validations/Validations";
 import * as yup from "yup";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
+=======
+>>>>>>> 03d9834a037282de12ec379edde0e218df53ede3
 
 const Register = () => {
   //For form validation using react-hook-form
@@ -33,6 +36,7 @@ const Register = () => {
   return (
     <Container>
       <h1>Register</h1>
+<<<<<<< HEAD
       <Form onSubmit={handleSubmit(onSubmit)}>
         <Row>
           <Col md={6}>
@@ -74,6 +78,33 @@ const Register = () => {
           </Col>
         </Row>
 
+=======
+      <Form>
+        <Row>
+          <Col md={6}>
+            Name<br></br>
+            <Input type="text" name="name"></Input>
+          </Col>
+        </Row>
+        <Row>
+          <Col md={6}>
+            Email<br></br>
+            <Input type="email" name="email"></Input>
+          </Col>
+        </Row>
+        <Row>
+          <Col md={6}>
+            Password<br></br>
+            <Input type="password" name="password"></Input>
+          </Col>
+        </Row>
+        <Row>
+          <Col md={6}>
+            Confirm Password<br></br>
+            <Input type="password" name="confirmpassword"></Input>
+          </Col>
+        </Row>
+>>>>>>> 03d9834a037282de12ec379edde0e218df53ede3
         <Row>
           <Col md={6}>
             <Button>Register</Button>
