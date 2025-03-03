@@ -1,5 +1,5 @@
 import loginImage from "../Images/loginImage.jpg";
-import { userSchemaValidation } from "../Validations/UserValidations";
+import { userSchema } from "../Validations/Validations";
 import * as yup from "yup";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -21,7 +21,7 @@ const Register = () => {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm({ resolver: yupResolver(userSchemaValidation) });
+  } = useForm({ resolver: yupResolver(userSchema) });
 
   // Handle form submission
 
