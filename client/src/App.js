@@ -3,7 +3,7 @@ import Footer from "./Components/Footer";
 import Header from "./Components/Header";
 import Home from "./Components/Home";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Container, Row, Col } from "reactstrap"; //import the Reactstrap Components
+import { Container, Row, Col } from "reactstrap";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Login from "./Components/Login";
 import Profile from "./Components/Profile";
