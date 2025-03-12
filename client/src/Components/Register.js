@@ -3,9 +3,13 @@ import { userSchema } from "../Validations/Validations";
 import * as yup from "yup";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
+<<<<<<< HEAD
 import { useSelector, useDispatch } from "react-redux";
 import { addUser, deleteUser } from "../Features/UserSlice";
 import React, { useState } from "react";
+=======
+import { useSelector } from "react-redux";
+>>>>>>> 2110b064b6ed6e0750ac811cb41c48cdf8dabc64
 
 import {
   Button,
@@ -27,6 +31,7 @@ const Register = () => {
   } = useForm({ resolver: yupResolver(userSchema) });
 
   const userList = useSelector((state) => state.users.value);
+<<<<<<< HEAD
   //Create the state variables
 
   const [name, setname] = useState("");
@@ -55,6 +60,13 @@ const Register = () => {
 
   const handleDelete = (email) => {
     dispatch(deleteUser(email));
+=======
+
+  // Handle form submission
+
+  const onSubmit = (data) => {
+    console.log("Form Data", data); // You can handle the form submission here
+>>>>>>> 2110b064b6ed6e0750ac811cb41c48cdf8dabc64
   };
 
   return (
@@ -64,6 +76,7 @@ const Register = () => {
         <Row>
           <Col md={6}>
             Name<br></br>
+<<<<<<< HEAD
             <input
               type="text"
               name="name"
@@ -71,12 +84,16 @@ const Register = () => {
                 onChange: (e) => setname(e.target.value),
               })}
             />
+=======
+            <input type="text" name="name" {...register("name")}></input>
+>>>>>>> 2110b064b6ed6e0750ac811cb41c48cdf8dabc64
           </Col>
           <p className="error">{errors.name?.message}</p>
         </Row>
         <Row>
           <Col md={6}>
             Email<br></br>
+<<<<<<< HEAD
             <input
               type="email"
               name="email"
@@ -84,6 +101,9 @@ const Register = () => {
                 onChange: (e) => setemail(e.target.value),
               })}
             />
+=======
+            <input type="email" name="email" {...register("email")}></input>
+>>>>>>> 2110b064b6ed6e0750ac811cb41c48cdf8dabc64
           </Col>
           <p className="error">{errors.email?.message}</p>
         </Row>
@@ -93,10 +113,15 @@ const Register = () => {
             <input
               type="password"
               name="password"
+<<<<<<< HEAD
               {...register("password", {
                 onChange: (e) => setpassword(e.target.value),
               })}
             />
+=======
+              {...register("password")}
+            ></input>
+>>>>>>> 2110b064b6ed6e0750ac811cb41c48cdf8dabc64
           </Col>
           <p className="error">{errors.password?.message}</p>
         </Row>
@@ -106,10 +131,15 @@ const Register = () => {
             <input
               type="password"
               name="confirmpassword"
+<<<<<<< HEAD
               {...register("confirmPassword", {
                 onChange: (e) => setconfirmPassword(e.target.value),
               })}
             />
+=======
+              {...register("confirmPassword")}
+            ></input>
+>>>>>>> 2110b064b6ed6e0750ac811cb41c48cdf8dabc64
           </Col>
           <p className="error">{errors.confirmPassword?.message}</p>
         </Row>
@@ -129,11 +159,14 @@ const Register = () => {
                   <td>{user.name}</td>
                   <td>{user.email}</td>
                   <td>{user.password}</td>
+<<<<<<< HEAD
                   <td>
                     <Button onClick={() => handleDelete(user.email)}>
                       Delete User
                     </Button>
                   </td>
+=======
+>>>>>>> 2110b064b6ed6e0750ac811cb41c48cdf8dabc64
                 </tr>
               ))}
             </tbody>
