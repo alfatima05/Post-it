@@ -1,5 +1,5 @@
-Render:
-https://post-it-krvm.onrender.com
+Git hub
+https://github.com/piperhuntress/postit-app-sem2Ay24-25.git
 
-Github:
-https://github.com/alfatima05/Post-it.git
+Render
+https://postit-app-sem2ay24-25.onrender.com/

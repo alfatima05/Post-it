@@ -11,22 +11,24 @@ import {
 } from "reactstrap";
 import logo from "../Images/logo-t.png";
 import { Link } from "react-router-dom";
-import { userSchema } from "../Validations/Validations";
 import * as yup from "yup";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
+import { userSchemaValidation } from "../Validations/UserValidations";
 
 const Login = () => {
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm({ resolver: yupResolver(userSchema) });
+  } = useForm({ resolver: yupResolver(userSchemaValidation) });
+
+  var x = 1;
+  // Handle form submission
 
   const onSubmit = (data) => {
-    console.log("Form Data", data);
+    console.log("Form Data", data); // You can handle the form submission here
   };
-
   return (
     <div>
       <Container>
@@ -49,7 +51,7 @@ const Login = () => {
                 {...register("password")}
               ></input>
             </Col>
-            <p className="error">{errors.password?.message}</p>
+            <p className="error">{errors.email?.message}</p>
           </Row>
 
           <Row>

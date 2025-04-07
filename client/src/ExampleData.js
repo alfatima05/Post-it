@@ -1,20 +1,20 @@
 export const UsersData = [
   {
     id: 1,
-    name: "Fatiam",
-    email: "Fatiam@utas.edu.om",
+    name: "Jasmin Tumulak",
+    email: "jasmine@utas.edu.om",
     password: "12345",
   },
   {
     id: 2,
-    name: "Shooq",
-    email: "Shooq@utas.edu.om",
+    name: "Marian Malig-on",
+    email: "marian@utas.edu.om",
     password: "12345",
   },
   {
     id: 3,
-    name: "Alia",
-    email: "Alia@utas.edu.om",
+    name: "Ahmed Ali Jaboob",
+    email: "ahmed@utas.edu.om",
     password: "12345",
   },
 ];
