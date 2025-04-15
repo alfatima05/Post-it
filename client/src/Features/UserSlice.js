@@ -11,7 +11,7 @@ const initialState = {
   isError: false,
 };
 
-//Create the thunk
+//Create the thunk (Befor slice)
 export const registerUser = createAsyncThunk(
   "users/registerUser",
   async (userData) => {
@@ -29,6 +29,23 @@ export const registerUser = createAsyncThunk(
     }
   }
 );
+
+export const login = createAsyncThunk("users/login", async (userData) => {
+  try {
+    const response = await axios.post("http://localhost:3001/login", {
+      email: userData.email,
+      password: userData.password,
+    });
+    const user = response.data.user;
+    console.log(response);
+    return user;
+  } catch (error) {
+    //handle the error
+    const errorMessage = "Invalid credentials";
+    alert(errorMessage);
+    throw new Error(errorMessage);
+  }
+});
 
 export const userSlice = createSlice({
   name: "users",
@@ -58,6 +75,16 @@ export const userSlice = createSlice({
         state.isSuccess = true;
       })
       .addCase(registerUser.rejected, (state) => {
+        state.isError = true;
+      })
+      // For login thunk
+      .addCase(login.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(login.fulfilled, (state, action) => {
+        state.isSuccess = true;
+      })
+      .addCase(login.rejected, (state) => {
         state.isError = true;
       });
   },
