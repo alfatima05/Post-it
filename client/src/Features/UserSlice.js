@@ -38,13 +38,20 @@ export const login = createAsyncThunk("users/login", async (userData) => {
     });
     const user = response.data.user;
     console.log(response);
-    return user;
+    return user; // return the value to update the state using the extrareducer fulfilled as a payload
   } catch (error) {
     //handle the error
     const errorMessage = "Invalid credentials";
     alert(errorMessage);
     throw new Error(errorMessage);
   }
+});
+
+export const logout = createAsyncThunk("/users/logout", async () => {
+  try {
+    // Send a request to your server to log the user out
+    const response = await axios.post("http://localhost:3001/logout");
+  } catch (error) {}
 });
 
 export const userSlice = createSlice({
@@ -82,9 +89,24 @@ export const userSlice = createSlice({
         state.isLoading = true;
       })
       .addCase(login.fulfilled, (state, action) => {
+        state.user = action.payload;
         state.isSuccess = true;
       })
       .addCase(login.rejected, (state) => {
+        state.isError = true;
+      })
+
+      // For logout thunk
+      .addCase(logout.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(logout.fulfilled, (state) => {
+        state.user = {}; // Clear user data or perform additional cleanup if needed
+        state.isLoading = false;
+        state.isSuccess = false;
+      })
+      .addCase(logout.rejected, (state) => {
+        state.isLoading = false;
         state.isError = true;
       });
   },
