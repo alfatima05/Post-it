@@ -4,6 +4,9 @@ import * as yup from "yup";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 
+import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
+
 import {
   Button,
   Col,
@@ -20,6 +23,15 @@ import { useState } from "react";
 import { addUser, deleteUser, updateUser } from "../Features/UserSlice";
 
 const UpdateUser = () => {
+  const Email = useSelector((state) => state.users.user.email);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (!Email) {
+      navigate("/login");
+    }
+  }, [Email]);
+
   const {
     register,
     handleSubmit,
