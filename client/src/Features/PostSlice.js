@@ -1,6 +1,5 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
-import { Await } from "react-router";
 
 const initialState = {
   posts: [],
@@ -19,6 +18,7 @@ export const savePost = createAsyncThunk(
       });
 
       const post = response.data.post;
+      console.log(post);
       return post;
     } catch (error) {
       console.log(error);

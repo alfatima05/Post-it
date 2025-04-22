@@ -10,6 +10,7 @@ import {
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
+import { savePost } from "../Features/PostSlice";
 
 const SharePosts = () => {
   const [postMsg, setpostMsg] = useState("");
@@ -18,7 +19,23 @@ const SharePosts = () => {
   const dispatch = useDispatch();
 
   const email = useSelector((state) => state.users.user.email);
+  //slecte from store
 
+  const handlePost = async () => {
+    // Validate that postMsg is not empty
+    if (!postMsg.trim()) {
+      alert("Post message is required."); // Display an alert or set an error state
+      return; // Exit the function early if validation fails
+    }
+
+    const postData = {
+      postMsg: postMsg,
+      email: email,
+    };
+    dispatch(savePost(postData)); // Dispatch the savePost thunk from the Posts Slice.
+
+    setpostMsg(""); //clear the text area after posting
+  };
   return (
     <div>
       <h1>SharePosts</h1>
@@ -29,8 +46,10 @@ const SharePosts = () => {
             name="share"
             placeholder="Share your thoughts..."
             type="textarea"
+            value={postMsg}
+            onChange={(e) => setpostMsg(e.target.value)}
           ></Input>
-          <Button>PostIT</Button>
+          <Button onClick={() => handlePost()}>PostIT</Button>
         </Col>
       </Row>
     </div>
