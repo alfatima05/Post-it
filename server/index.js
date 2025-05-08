@@ -4,6 +4,7 @@ import express from "express";
 import UserModel from "./Models/UserModel.js"; //write js
 import bcrypt from "bcrypt";
 import PostModel from "./Models/PostModel.js";
+import * as ENV from "./config.js";
 
 const app = express();
 app.use(express.json());
