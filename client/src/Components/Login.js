@@ -70,34 +70,44 @@ const Login = () => {
   return (
     <div>
       <Container>
-        <img src={logo} />
+        <Row>
+          <Col md={6} className="center">
+            <img src={logo} className="center" />
+          </Col>
+        </Row>
         <Form onSubmit={handleSubmit(onSubmit)}>
           <Row>
-            <Col md={5}>
+            <Col md={4} className="center">
               Username<br></br>
-              <input
-                type="email"
-                name="email"
-                onChange={(e) => setemail(e.target.value)}
-              ></input>
+              <FormGroup>
+                <Label for="name">Name</Label>
+                <input
+                  type="email"
+                  name="email"
+                  onChange={(e) => setemail(e.target.value)}
+                ></input>
+              </FormGroup>
             </Col>
             <p className="error">{errors.email?.message}</p>
           </Row>
 
           <Row>
-            <Col md={5}>
+            <Col md={4} className="center">
               Password<br></br>
-              <input
-                type="password"
-                name="password"
-                onChange={(e) => setpassword(e.target.value)}
-              ></input>
+              <FormGroup>
+                <Label for="name">Name</Label>
+                <input
+                  type="password"
+                  name="password"
+                  onChange={(e) => setpassword(e.target.value)}
+                ></input>
+              </FormGroup>
             </Col>
             <p className="error">{errors.email?.message}</p>
           </Row>
 
           <Row>
-            <Col md={5}>
+            <Col md={4} className="center">
               <Button
                 color="primary"
                 className="button"
@@ -109,7 +119,7 @@ const Login = () => {
           </Row>
 
           <Row>
-            <Col md={6}>
+            <Col md={4} className="center">
               <p className="smalltext">
                 No Account? <Link to="/register">Sign Up now.</Link>
               </p>
